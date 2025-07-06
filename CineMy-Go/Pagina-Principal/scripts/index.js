@@ -10,7 +10,7 @@ function CardPlay({ nome, modo, anoLancamento, link, imagem, avaliacao }) {
         e(
             'div',
             { className: 'star-play' },
-            e('img', { src: './img/star.png', alt: 'Botão de play' }),
+            e('img', { src: './CineMy-Go/Pagina-Principal/img/star.png', alt: 'Botão de play' }),
             e('p', null, avaliacao ? avaliacao : '0')
         ),
         e(
@@ -20,7 +20,7 @@ function CardPlay({ nome, modo, anoLancamento, link, imagem, avaliacao }) {
                 'div',
                 { className: 'imagem-cartaz' },
                 e('img', {
-                    src: imagem ? imagem : './img/Imagem-Catalogo/Sonic.jpg',
+                    src: imagem ? imagem : './CineMy-Go/Pagina-Principal/img/Imagem-Catalogo/Sonic.jpg',
                     alt: `Cartaz de ${nome}`,
                 }),
             ),
@@ -39,7 +39,7 @@ function SectionOne() {
             nome: 'Sonic 3',
             modo: '1h 50m',
             anoLancamento: '2024',
-            link: 'http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=1',
+            link: 'http://127.0.0.1:5501/filmes.html?id=1',
             imagem: 'https://media-cache.cinematerial.com/p/500x/grnwpsui/sonic-the-hedgehog-3-movie-poster.jpg?v=1731049635',
         },
         {
@@ -47,7 +47,7 @@ function SectionOne() {
             nome: 'Operação Natal',
             modo: '2h 03m',
             anoLancamento: '2024',
-            link: 'http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=4',
+            link: 'http://127.0.0.1:5501/filmes.html?id=4',
             imagem: 'https://media-cache.cinematerial.com/p/500x/slq8cgtd/red-one-movie-poster.jpg?v=1733771259',
         },
         {
@@ -55,7 +55,7 @@ function SectionOne() {
             nome: 'Venom 3',
             modo: '1h 49m',
             anoLancamento: '2024',
-            link: 'http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=5',
+            link: 'hhttp://127.0.0.1:5501/filmes.html?id=5',
             imagem: 'https://media-cache.cinematerial.com/p/500x/bicsbagk/venom-the-last-dance-movie-poster.jpg?v=1717423514',
         },
         {
@@ -63,7 +63,7 @@ function SectionOne() {
             nome: 'Mufasa: O Rei Leão',
             modo: '2h 0m',
             anoLancamento: '2024',
-            link: 'http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=7',
+            link: 'http://127.0.0.1:5501/filmes.html?id=7',
             imagem: 'https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg',
             
         },
@@ -72,7 +72,7 @@ function SectionOne() {
             nome: 'Capitão América: Admirável...',
             modo: '1h 58m',
             anoLancamento: '2025',
-            link: 'http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=24',
+            link: 'http://127.0.0.1:5501/filmes.html?id=24',
             imagem: 'https://m.media-amazon.com/images/M/MV5BMjIyNjZmOTEtYWFiYS00YzRhLThhMTktMDUwN2Q3ZDgzZmJmXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg',
         },
     ];

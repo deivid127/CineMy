@@ -434,7 +434,7 @@ voteButtonRight.addEventListener('click', () =>
         let li = document.createElement("li");
 
         let link = document.createElement("a");
-        link.href = `http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=${item.id}`; 
+        link.href = `http://127.0.0.1:5501/filmes.html?id=${item.id}`; 
         link.textContent = item.titulo;
 
         li.appendChild(link);
@@ -472,7 +472,7 @@ async function searchSupabase2(){
       let li = document.createElement("li");
 
       let link = document.createElement("a");
-      link.href = `http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=${item.id}`; 
+      link.href = `http://127.0.0.1:5501/filmes.html?id=${item.id}`; 
       link.textContent = item.titulo;
 
       li.appendChild(link);

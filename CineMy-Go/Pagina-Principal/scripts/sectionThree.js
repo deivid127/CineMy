@@ -109,7 +109,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Deadpool e Wolverine",
             modo: "2h 07m",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=2",
+            link: "http://127.0.0.1:5501/filmes.html?id=2",
             imagem: "https://media-cache.cinematerial.com/p/500x/wxeowuan/deadpool-wolverine-movie-poster.jpg?v=1716210577",
           }),
           React.createElement(CardPlay, {
@@ -117,7 +117,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Divertidamente 2",
             modo: "1h 36m",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=3",
+            link: "http://127.0.0.1:5501/filmes.html?id=3",
             imagem: "./img/ImgCardsFilmes/Divertidamente2.jpeg",
           }),
           React.createElement(CardPlay, {
@@ -125,7 +125,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "De Volta à Ação",
             modo: "2h 17m",
             anoLancamento: "2025",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=10",
+            link: "http://127.0.0.1:5501/filmes.html?id=10",
             imagem: "https://media-cache.cinematerial.com/p/500x/ptdwzafa/back-in-action-movie-poster.jpg?v=1731600265",
           }),
           React.createElement(CardPlay, {
@@ -133,7 +133,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Bezouro Azul",
             modo: "2h 07m",
             anoLancamento: "2023",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=9",
+            link: "http://127.0.0.1:5501/filmes.html?id=9",
             imagem: "https://media-cache.cinematerial.com/p/500x/ffspxkkv/blue-beetle-movie-poster.jpg?v=1691526774",
           }),
           React.createElement(CardPlay, {
@@ -141,7 +141,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Madame Teia",
             modo: "1h 56m",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=16",
+            link: "http://127.0.0.1:5501/filmes.html?id=16",
             imagem: "https://media-cache.cinematerial.com/p/500x/q4um45wn/madame-web-movie-poster.jpg?v=1728692602",
           }),
           React.createElement(CardPlay, {
@@ -157,7 +157,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Sua Culpa",
             modo: "2 horas",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=15",
+            link: "http://127.0.0.1:5501/filmes.html?id=15",
             imagem: "./img/ImgCardsFilmes/SuaCulpa.png",
           }),
           React.createElement(CardPlay, {
@@ -165,7 +165,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Atlas",
             modo: "2 horas",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=13",
+            link: "http://127.0.0.1:5501/filmes.html?id=13",
             imagem: "https://media-cache.cinematerial.com/p/500x/gdlrqh5q/atlas-movie-poster.jpg?v=1716533773",
           }),
           React.createElement(CardPlay, {
@@ -173,7 +173,7 @@ function SectionThree({ name, scrollAmount}) {
             nome: "Godzilla e Kong",
             modo: "1h 55m",
             anoLancamento: "2024",
-            link: "http://127.0.0.1:5501/CineMy-Go/Pagina-Principal/filmes.html?id=14",
+            link: "http://127.0.0.1:5501/filmes.html?id=14",
             imagem: "https://media-cache.cinematerial.com/p/500x/owcbij6r/godzilla-x-kong-the-new-empire-movie-poster.jpg?v=1710376554",
           })  
         ),
