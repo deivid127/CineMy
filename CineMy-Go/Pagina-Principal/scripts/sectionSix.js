@@ -113,7 +113,7 @@ function SectionSix({scrollAmount}) {
               nome: "Cidade de Deus",
               modo: "2h 10m",
               anoLancamento: "2002",
-              link: "http://127.0.0.1:5501/filmes.html?id=17",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=17",
               imagem: "https://media-cache.cinematerial.com/p/500x/7hhve0ob/cidade-de-deus-movie-poster.jpg?v=1456259667",
             }),
             React.createElement(CardPlay, {
@@ -121,7 +121,7 @@ function SectionSix({scrollAmount}) {
               nome: "Tropa de Elite",
               modo: "1h 55m",
               anoLancamento: "2007",
-              link: "http://127.0.0.1:5501/filmes.html?id=18",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=18",
               imagem: "https://media-cache.cinematerial.com/p/500x/09fkuq4j/tropa-de-elite-spanish-movie-poster.jpg?v=1456777347",
             }),
             React.createElement(CardPlay, {
@@ -129,7 +129,7 @@ function SectionSix({scrollAmount}) {
               nome: "O Auto da Compadecida",
               modo: "1h 44m",
               anoLancamento: "2000",
-              link: "http://127.0.0.1:5501/filmes.html?id=19",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=19",
               imagem: "https://media-cache.cinematerial.com/p/500x/cp8fdgad/o-auto-da-compadecida-brazilian-movie-poster.jpg?v=1456441479",
             }),
             React.createElement(CardPlay, {
@@ -137,7 +137,7 @@ function SectionSix({scrollAmount}) {
               nome: "Até que a Sorte...",
               modo: "1h 42m",
               anoLancamento: "2013",
-              link: "http://127.0.0.1:5501/filmes.html?id=20",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=20",
               imagem: "https://media-cache.cinematerial.com/p/500x/fqxvgtdu/ate-que-a-sorte-nos-separe-2-brazilian-movie-poster.jpg?v=1456482751",
             }),
             React.createElement(CardPlay, {
@@ -145,7 +145,7 @@ function SectionSix({scrollAmount}) {
               nome: "Hebe: A Estrela do Brasil",
               modo: "1h 52m",
               anoLancamento: "2019",
-              link: "http://127.0.0.1:5501/filmes.html?id=21",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=21",
               imagem: "https://media-cache.cinematerial.com/p/500x/3nqfwhpz/hebe-a-estrela-do-brasil-brazilian-movie-poster.jpg?v=1567617339",
             }),
             React.createElement(CardPlay, {
@@ -153,7 +153,7 @@ function SectionSix({scrollAmount}) {
               nome: "Central do Brasil",
               modo: "5 Temporadas",
               anoLancamento: "1998",
-              link: "http://127.0.0.1:5501/filmes.html?id=22",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=22",
               imagem: "https://media-cache.cinematerial.com/p/500x/1x7d8fge/central-do-brasil-movie-poster.jpg?v=1456831287",
             }),
             React.createElement(CardPlay, {
@@ -161,7 +161,7 @@ function SectionSix({scrollAmount}) {
               nome: "Carandiru",
               modo: "2h 25m",
               anoLancamento: "2003",
-              link: "http://127.0.0.1:5501/filmes.html?id=23",
+              link: "https://dev-gabriell.github.io/CineMy/filmes.html?id=23",
               imagem: "https://media-cache.cinematerial.com/p/500x/vavc0xub/carandiru-movie-poster.jpg?v=1456699537",
             }),
           ),
