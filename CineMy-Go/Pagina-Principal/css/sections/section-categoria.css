@@ -1,0 +1,102 @@
+.section-categoria{
+    width: 100%;
+    height: auto;
+}
+
+.Filmes-Series-content2{
+    margin-bottom: 0;
+}
+
+.entrevistas-geral2{
+    height: auto;
+
+}
+.categorias-content{
+    width: 100%;
+    height: auto;
+    margin: 30px auto;
+}
+
+.display-categoria{
+    width: 100%;
+}
+.categorias-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 165px;
+    height: 100px;
+    padding: 0;
+    background-color: #252525;
+    transition: 0.5s;
+    border: 2px solid black; 
+    box-shadow: 3px 3px 0px var(--login-Color);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+  
+  .categorias-card:hover {
+    transform: scale(1.03);
+    border: 2px solid black; 
+    box-shadow: 0 0 0 3px white;
+    border-radius: 10px;
+    z-index: 10;
+  }
+.card-cat img {
+    width: 120%;
+    height: auto;
+    transform: translateX(0px);
+}
+.categorias-card  h3{
+    position: absolute;
+    font-size: 1.4em;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+.card-cat a h3{
+    text-decoration: none;
+}
+.card-cat img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120%;
+}
+.card-cat{
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+    transition: 0.2s;
+}
+
+.left-btnCat, .right-btnCat{
+    display: none;
+}
+
+  
+  .img-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .hover-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    filter: brightness(0.6);
+  }
+  
+  .img-video:hover .hover-video {
+    opacity: 1;
+  }
+  
+  .img-video:hover img {
+    opacity: 0;
+  }

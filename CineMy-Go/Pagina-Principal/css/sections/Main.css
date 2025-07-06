@@ -1,0 +1,144 @@
+main{
+    height: auto;
+}
+div.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.slider-content{
+    display: flex;
+    width: 400%;
+    height: auto;
+}
+.slider-content input{
+    display: none;
+}
+.slide-box {
+    width: 25%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    margin: 0;
+    transition: 0.5s ease;
+}
+.slide-box img{
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to bottom, var(--Cor-Fundo), transparent);
+    mask-image: linear-gradient(to bottom, var(--Cor-Fundo), transparent);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+}
+
+.nav-manual, .nav-auto{
+    position: absolute;
+    width: 100%;
+    margin-top: 31%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn, .nav-auto div{
+    background: var(--Fontes-Cor);
+    padding: 2px 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child), .nav-auto div:not(:last-child){
+    margin-right: 10px;
+}
+
+
+input[type="radio"]#radio1:checked ~ .nav-manual label[for="radio1"],
+input[type="radio"]#radio2:checked ~ .nav-manual label[for="radio2"],
+input[type="radio"]#radio3:checked ~ .nav-manual label[for="radio3"] {
+    background-color: var(--login-Color);
+}
+
+
+#radio1:checked ~ .primeiro{
+    margin-left: 0%;
+}
+#radio2:checked ~ .primeiro{
+    margin-left: -25%;
+}
+#radio3:checked ~ .primeiro{
+    margin-left: -50%;
+}
+
+.card-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+}
+.trailer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    height: 40px;
+    background-color: var(--login-Color);
+    border-radius: 7px;
+    margin: 5px;
+    transition: 0.3s ease;
+}
+
+
+.addList{
+    border: 2px solid var(--Fontes-Cor);
+    background-color: #00000000;
+}
+.addList a p, .trailer a p{
+    color: var(--Fontes-Cor);
+}
+.addList:hover{
+    background-color: var(--Fontes-Cor) !important;
+}
+.addList a p:hover{
+    font-weight: 700;
+    color: var(--Cor-Fundo);
+}
+.trailer p{
+    padding: 7px 36px;
+    color: var(--Cor-Fundo);
+}
+
+.trailer:hover{
+    background-color: #023a24;
+}
+
+@media (max-width: 533px) {
+    .card-main {
+        left: -70px; 
+        width: 90%;
+        height: 150px; 
+        flex-direction: column; 
+    }
+
+    .trailer {
+        width: 150px;
+        height: 35px;
+    }
+
+    .trailer:nth-child(1)::before {
+        width: 20px; 
+        height: 20px;
+        left: 20px; 
+    }
+
+    .trailer p {
+        padding: 5px 20px; 
+        font-size: 0.85em;
+    }
+}

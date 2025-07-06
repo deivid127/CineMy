@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMy: Marcação, avaliação e comentarios dos filmes</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./img/LogoSimplificada.png">
+
+    <!--FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Rubik+Vinyl&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+     <header>
+        <div class="header-Geral">
+            <div class="header-content">
+                <a href="#inicio">
+                    <img src="./img/imgHeader/logotipo.png" alt="">
+                </a>
+                <input type="checkbox" id="close-menu" class="close-menu" aria-label="Close menu" role="button">
+                <label for="close-menu" title="close-menu" class="close-menu-label"></label>
+                <nav class="menu">
+                    <div id="categorias-geral">
+                        <ul onclick="getElementById('close-menu').checked = false" ;>
+                            <li><a href="#inicio">Página Inicial</a></li>
+                            <div class="cat">
+                                <li><a href="#noticia">Notícias</a></li>
+                            </div>
+                            <li><a href="#FilmesSeries">Filmes/Séries</a></li>
+                            <li><a href="#contato">Contato</a></li>
+
+                            <hr>
+
+                            <div class="contato">
+                                <h3>Precisa de ajuda?</h3>
+                                <p><a href="#">Whatapp +55 00 0000-0000</a></p>
+                                <p><a href="#">Email</a></p>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="search">
+                <div class="enviar">
+                    <div class="input-Search">
+                        <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Digite..." onkeyup="searchSupabase()">
+                        <button class="botao2"><img src="./img/lupa.png" alt=""></button>
+
+                        <ul id="results"></ul>
+                    </div>
+                    <button class="botao" onclick="Search()"><img src="./img/lupa.png" alt=""></button>
+                    <div class="minha-Lista">
+                        <a href="#">
+                            <img src="./img/imgHeader/LogoMinhaLista.png" alt="">
+                        </a>
+                    </div>
+                    <div class="login" onclick="getElementById('close-menu').checked = false">
+
+                    </div>
+                    <div class="loginImg">
+                        <img onclick="login()" style="width: 30px; height: auto; margin-left: 25px; margin-top: 3px; cursor: pointer;" src="./img/imgHeader/logo-login.png" alt=""> 
+                    </div> 
+                </div>
+            </div>
+            
+        </div>
+    </header>
+   
+    <!-- <div id="header-container"></div> -->
+    <div class="space-header"></div>
+
+    <!--Principal-->
+    <main id="inicio">
+        <div class="slider">
+            <div class="slider-content">
+                <input type="radio" name="btn-radio" id="radio1">
+                <input type="radio" name="btn-radio" id="radio2">
+                <input type="radio" name="btn-radio" id="radio3">
+
+                <div class="slide-box primeiro">
+                    <img src="./img/ImgMain/Banner1.png" alt="slide 1">
+                    <div class="card-main">
+                        <div class="trailer"><a href="http://127.0.0.1:5500/Pagina-Principal/filmes.html?id=10">
+                                <p>Assistir Trailer</p>
+                            </a></div>
+                        <div class="trailer addList"><a href="#">
+                                <p>Adicionar na lista</p>
+                            </a></div>
+                    </div>
+                </div>
+                <div class="slide-box">
+                    <img src="./img/ImgMain/Banner2.png" alt="slide 2">
+                    <div class="card-main">
+                        <div class="trailer"><a href="http://127.0.0.1:5500/Pagina-Principal/filmes.html?id=11">
+                                <p>Assistir Trailer</p>
+                            </a></div>
+                        <div class="trailer addList"><a href="#">
+                                <p>Adicionar na lista</p>
+                            </a></div>
+                    </div>
+                </div>
+                <div class="slide-box">
+                    <img src="./img/ImgMain/Banner3.png" alt="slide 3">
+                    <div class="card-main">
+                        <div class="trailer"><a href="http://127.0.0.1:5500/Pagina-Principal/filmes.html?id=12">
+                                <p>Assistir Trailer</p>
+                            </a></div>
+                        <div class="trailer addList"><a href="#">
+                                <p>Adicionar na lista</p>
+                            </a></div>
+                    </div>
+                </div>
+
+                <div class="nav-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+                <div class="nav-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!--Fim Principal-->
+
+    <!--REACT-->
+    <div id="CardMovie"></div>
+    <!--FIM REACT-->
+
+
+    <section class="section-two" id="noticia">
+        <h2>Notícias diárias</h2>
+        <div class="content-noticias">
+            <div class="informacao-diario">
+                <div class="noticia">
+                    <div class="centralizar-conteudo">
+                        <!-- NOTICIA DIARIA AQUI!!! -->
+
+                        <!--TITULO DA NOTICIA  -->
+                        <h2>'Ainda Estou Aqui' ganha prêmio em Festival Internacional de Cinema de Palm Springs</h2>
+                        <!-- PEQUENO TEXTO SOBRE A NOTICIA -->
+                        <p>A cerimônia em Hollywood reconheceu a
+                            atuação de Fernanda em “Ainda Estou Aqui”, primeiro filme original do Globoplay.
+                        </p>
+                        <div class="conteudo-noticia">
+                            <div class="noticia-um">
+                                <!-- IMAGEM DA NOTICIA!!! -->
+                                <div class="imagem-noticia-um"><img src="./img/NoticiasImg/Fernanda Torres.jpg" alt="">
+                                </div>
+
+                                <!-- SUBTITULO DA NOTICIA -->
+                                <h3>Fernanda Torres se tornou a primeira atriz brasileira a ganhar o Globo de Ouro</h3>
+                                <!-- LINK DA PÁGINA COMPLETA SOBRE A NOTICIA -->
+                                <p><a href="#fernanda">Ver mais</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrossel -->
+            <div class="destaques-diario">
+                <div class="slide-destaque">
+                    <div class="slider-content-noticia">
+                        <input type="radio" name="radio-noticia" id="radioN1" checked>
+                        <input type="radio" name="radio-noticia" id="radioN2">
+                        <input type="radio" name="radio-noticia" id="radioN3">
+
+                        <div class="slide-box-noticia slide-noticia-um">
+                            <div class="img-noticia">
+                               <a href="http://127.0.0.1:5500/Pagina-Principal/filmes.html?id=24"><img src="./img/NoticiasImg/CapitaoPoster.jpeg" alt="">
+                                <h3>"<span style="color: #c50000; font-size: 1em;">Capitão</span> <span style="color: #0b0bb4; font-size: 1em;">América</span>: Admirável Mundo Novo" é oficialmente lançado</h3>
+                                <img src="./img/Play-Button.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="slide-box-noticia">
+                            <div class="img-noticia2">
+                                <a href="#cinema"><img src="./img/NoticiasImg/cinemaPoster.jpeg" alt="">
+                                    <h3>Semana do Cinema com ingressos a <br><span style="font-size: 1.3em;">R$ 10</span></h3>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="slide-box-noticia">
+                            <div class="img-noticia3">
+                                <a href="#cinema"><img src="./img/NoticiasImg/aindaEstouAquiPoster.png" alt="">
+                                    <h3>"Ainda Estou Aqui" Ganha Destaque Internacional</h3>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="nav-noticias-auto">
+                            <div class="auto-noticias-btn1"></div>
+                            <div class="auto-noticias-btn2"></div>
+                            <div class="auto-noticias-btn3"></div>
+                        </div>
+
+                        <div class="nav-noticia-manual">
+                            <label for="radioN1" class="manual-noticia-btn"></label>
+                            <label for="radioN2" class="manual-noticia-btn"></label>
+                            <label for="radioN3" class="manual-noticia-btn"></label>
+                        </div>
+
+                        <div class="clique-geral-noticia">
+                            <div class="clique-manual-noticia" onclick="ButtonClickLeft()">
+                                <p>«</p>
+                            </div>
+                            <div class="clique-manual-noticia2" onclick="ButtonClicRight()">
+                                <p>»</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="space-line"></div>
+
+    <!-- Seção de Categorias -->
+    <section class="section-categoria lazy-component">
+        <div class="categorias-content">
+            <div class="Filmes-Series-content Filmes-Series-content2">
+                <div class="text-verMais">
+                    <div class="NomeSecoes2">
+                        <h2>Categorias</h2>
+                        <h3>Escolha um tipo de filme e vá ser feliz</h3>
+                        <div class="division3"></div>
+                    </div>
+                    <div class="verMais"><p><a href="#series">Ver mais</a></p></div>
+                    </div>
+            </div>
+            <div class="display-categoria">
+                <div class="entrevistas-geral entrevistas-geral2 ">
+                    <button class="scroll-btn left-btn left-btnCat">&#8249;</button>
+        
+                    <div class="entrevistas-container categoria-conteiner">
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 1 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video class="hover-video" autoplay loop muted>
+                                    <source src="./videos/superhero.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Super Herois</h3>
+                        </div>
+        
+        
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 2 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video class="hover-video" autoplay loop muted>
+                                    <source src="./videos/Terror.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Terror</h3>
+                        </div>
+        
+        
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 3 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video style="width: 137%" class="hover-video" autoplay loop muted>
+                                    <source  src="./videos/Aventura.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Aventura</h3>
+                        </div>
+        
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 4 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video class="hover-video" autoplay loop muted>
+                                    <source src="./videos/Anime.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Anime</h3>
+                        </div>
+        
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 5 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video class="hover-video" autoplay loop muted>
+                                    <source src="./videos/Comedia.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Comédia</h3>
+                        </div>
+        
+                        <div class="videos-entrevistas categorias-card">
+                            <!-- CATEGORIA 6 -->
+                            <div class="img-video card-cat">
+                                <a href="http://127.0.0.1:5500/Pagina-Principal/superherois.html">
+                                  <video class="hover-video" autoplay loop muted>
+                                    <source src="./videos/Romance.mp4" type="video/mp4">
+                                    
+                                  </video>
+                                </a>
+                              </div>
+                              <h3>Romance</h3>
+                            
+                        </div>
+    
+        
+                        
+                    </div>
+                    <button class="scroll-btn right-btn right-btnCat">&#8250;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="FilmesSeries" class="lazy-component"></div>
+
+    <div class="space-line space-line2"></div>
+
+
+    <!-- Secão de Entrevistas -->
+    <section class="section-four lazy-component">
+        <div class="text-verMais">
+            <div class="NomeSecoes">
+                <h2>Entrevistas da Semana</h2>
+                <div class="division4"></div>
+            </div>
+        </div>
+        <div class="entrevistas-geral">
+            <button class="scroll-btn left-btn">&#8249;</button>
+
+            <div class="entrevistas-container">
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 1 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/arianaentrevista2.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>2:27</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 2 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/cinemyentrevista1.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+
+                    <a href="#sonic">
+                        <h3>'Sonic 3' Stars Spill Surprising Hobbies 2</h3>
+                    </a>
+                </div>
+
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 3 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/entrevista3.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#sla">
+                        <h3>Peeling Back 'The Last Showgirl' Curtain 3</h3>
+                    </a>
+                </div>
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 4 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/arianaentrevista2.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 5 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/entrevista4.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 6 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/entrevista3.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 7 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/cinemyentrevista1.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+                <div class="videos-entrevistas">
+                    <!-- VIDEO 8 -->
+                    <div class="img-video">
+                        <a href="#"><img src="./img/ImgVideoPlay/entrevista3.jpg" alt=""></a>
+                        <div class="play">
+                            <img src="./img/Play-Button.png" alt="">
+                        </div>
+                        <p>3:34</p>
+                    </div>
+                    <a href="#ariana">
+                        <h3>Ariana Grande & Cynthia Erivo's 'Wicked' Watchlist 1</h3>
+                    </a>
+                </div>
+
+            </div>
+            <button class="scroll-btn right-btn">&#8250;</button>
+        </div>
+    </section>
+    
+    <div class="space-line"></div>
+
+    <div id="section-six" class="lazy-component"></div>
+    <div id="section-seven" class="lazy-component"></div>
+
+
+    <section class="section-eight lazy-component">
+        <div class="votacao-content">
+            <div class="Filmes-Series-content ">
+                <div class="text-verMais">
+                    <div class="NomeSecoes2">
+                        <h2>Vote</h2>
+                        <h3>Escolha o personagem da semana</h3>
+                        <div class="division3"></div>
+                    </div>
+                    <div class="verMais"><p><a href="#votacão">Ver mais</a></p></div>
+                    </div>
+            </div>
+
+            <div class="display-categoria">
+                <div class="entrevistas-geral entrevistas-geral2 ">
+                    <button class="scroll-btn left-btn left-btnVote">&#8249;</button>
+        
+                    <div class="entrevistas-container votacao-conteiner">
+                        <div class="videos-entrevistas card-votacao">
+                            <!-- VOTACAO 1 -->
+                            <div class="card-votacao-img vote-1">
+                                <a href="#Joker"><img src="./img/ImgVotacao/joker.jpg" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="videos-entrevistas card-votacao">
+                            <!-- VOTACAO 2 -->
+                            <div class="card-votacao-img vote-2">
+                                <a href="#Capitao"><img src="./img/Categorias/SuperHerois.jpg" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="videos-entrevistas card-votacao">
+                            <!-- VOTACAO 3 -->
+                            <div class="card-votacao-img vote-3">
+                                <a href="#MichaelB"><img src="./img/ImgVotacao/michael-b-jordan.jpg" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="videos-entrevistas card-votacao">
+                            <!-- VOTACAO 4 -->
+                            <div class="card-votacao-img vote-4">
+                                <a href="#Interestelar"><img src="./img/ImgVotacao/interestelar.jpg" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="videos-entrevistas card-votacao">
+                            <!-- VOTACAO 5     -->
+                            <div class="card-votacao-img vote-5">
+                                <a href="#Jack"><img src="./img/ImgVotacao/jack.jpeg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="scroll-btn right-btn right-btnVote">&#8250;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="space-line"></div>
+
+    <section class="section-anime lazy-component" id="anime">
+        <div class="title-anime">
+            <h2>Anime do Momento</h2>
+            <div class="division2"></div>
+        </div>
+        <div class="content-noticias">
+            <div class="informacao-diario anime-momento">
+                <div class="noticia anime">
+                    <div class="centralizar-conteudo">
+
+                        <!--TITULO DO ANIME  -->
+                       <a href="#solo"><h2>Solo Leveling</h2></a>
+                        <!-- PEQUENO TEXTO SOBRE O ANIME -->
+                        <p>Solo Leveling é uma história sobre um mundo onde humanos com habilidades mágicas, chamados de caçadores, lutam contra monstros para proteger a humanidade. 
+                        </p>
+                        <div class="conteudo-noticia">
+                            <div class="anime-um">
+                                <!-- IMAGEM DO ANIME!!! -->
+                               <a href="#solo"> <div class="imagem-anime-um"><img src="./img/ImgAnime/soloLeveling.webp" alt="imagem do anime"></a>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video -->
+            <div class="destaques-diario">
+                <div class="slide-destaque">
+                    <div class="slider-content-noticia">
+                        <div class="slide-box-noticia slide-noticia-um">
+                            <div class="video-anime">
+                                <video src="./img/ImgAnime/Solo Leveling 2ª temporada _ TRAILER OFICIAL.mp4" controls controlsList="nodownload" poster="./img/ImgAnime/CapaVideoAnime.png"></video>
+                            </div>
+                            <div class="imagem-anime-content" onclick="EnterImgAnime()">
+                                <div class="img-anime">
+                                    <img src="./img/ImgAnime/imgSolo1.jpeg" alt="primeira imagem do anime">
+                                </div> 
+                                <div class="img-anime">
+                                    <img src="./img/ImgAnime/imgSolo2.png" alt="segunda imagem do anime">
+                                </div>     
+
+                                <div class="img-anime">
+                                    <img src="./img/ImgAnime/imgSolo3.png" alt="terceira imagem do anime">
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="space-line"></div>
+
+    <section class="section-contato" id="contato">
+        <div class="redes">
+            <img src="./img/undraw_personal-email_hfut.svg" alt="">
+        </div>
+        <div class="contact-container">
+            <h2>Entre em Contato</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="emailContato" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+          <p>&copy; 2025 Avaliação de Filmes. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+
+     <a href="#inicio"><button class="return-button"><p>&#8250;</p></button></a>
+   
+   
+     <!--EMAIL E SENHA-->
+    <div id="conta">
+        <form action="login.jsp" method="post" id="conteudo-conta">
+            <h2>Entrar em minha conta</h2>
+            <p>Digite seu e-mail e senha:</p>
+
+            <label for="email"></label>
+            <input type="email" name="email" id="email" class="email" placeholder="E-mail">
+
+            <label for="senha"></label>
+            <input type="password" name="senha" id="senha" class="senha" placeholder="Senha">
+
+            <input class="entrar-conta" type="submit" value="Entrar">
+
+            <p>Não possui conta? <a href="#" onclick="CriarConta()">Clique aqui</a></p>
+            <p>Esqueceu a senha? <a href="#">Recuperar senha</a></p>
+        </form>
+    </div>
+    <!--FIM DO EMAIL E SENHA-->
+
+    <!-- IMAGENS DO ANIME DO MOMENTO -->
+     <div class="content-img-anime">
+         <div class="anime-destaques">
+            <div class="close-img-anime" onclick="CloseImgAnime()" >X</div>
+            <img class="full-img-anime primeiro-img-anime" src="./img/ImgAnime/imgSolo1.jpeg" alt="">
+            
+            <img class="full-img-anime" src="./img/ImgAnime/imgSolo2.png" alt="">
+
+            <img class="full-img-anime" src="./img/ImgAnime/imgSolo3.png" alt="">
+
+            <div class="clique-geral-img">
+                <div class="clique-manual-noticia clique-troca-img1" onclick="ImageClickLeft()">
+                    <p>«</p>
+                </div>
+                <div class="clique-manual-noticia2 clique-troca-img2" onclick="ImageClickRight()">
+                    <p>»</p>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- FIM IMAGENS DO ANIME DO MOMENTO -->
+
+
+
+    <!-- CRIAR CONTA -->
+    <div class="container-account">
+    <div class="signup-container">
+        <div class="close-sigup" onclick="closeCriarconta()">X</div>
+        <h2>Crie sua conta</h2>
+        <form name="criarConta" id="criarConta" action="criarConta.jsp" method="post">
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+            </div>
+            <div class="form-group">
+                <label for="emailCriar">Email</label>
+                <input type="email" id="emailCriar" name="emailCriar" placeholder="Digite seu Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="passwordCriar" placeholder="Crie sua senha" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirme sua senha</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" required>
+            </div>
+            <button class="btn" type="button" onclick="enviarFormulario()">Enviar</button>
+        </form>
+        
+        <div id="mensagem" class="message-box"></div>
+    </div>
+    </div>
+    
+    <!-- FINAL CRIAR CONTA -->
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    
+    <script src="scripts/script.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/sectionThree.js"></script>
+    <script src="./scripts/sectionSix.js"></script>
+    <script src="./scripts/sectionSeven.js"></script>
+    <script src="./scripts/cardeffect.js"></script>
+    <script src="header.js"></script>
+
+    <script>
+        VanillaTilt.init(document.querySelector(".imagem-anime-um"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        })
+    </script>
+</body>
+</html>

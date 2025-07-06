@@ -1,0 +1,410 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: 15px;
+    color: #fff;
+    height: auto;
+    font-family: "Exo 2", serif;
+    background-color: #000;
+}
+
+.space-header2{
+    width: 100%;
+    height: 10vh;
+}
+.conteiner{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 90%;
+    background-color: rgba(90, 90, 90, 0.534);
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+/* Header */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+    font-size: 3.4em;
+    text-transform: uppercase;
+    flex: 1 1 100%;
+    font-family: "Teko", serif;
+    font-weight: 400;
+}
+
+/* Complementary content */
+.complemento ul {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: first baseline;
+    padding: 10px 0;
+}
+
+.complemento li {
+    text-transform: capitalize;
+    margin: 0 10px;
+    list-style: none;
+}
+.complemento li:nth-child(1){
+    list-style: none;
+}
+
+/* General ratings section */
+.avaliacoes-geral {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.avaliacoes {
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.avaliacoes img {
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.avaliacoes h3 {
+    font-size: 1.2em;
+    margin-bottom: 2px;
+}
+
+/* Stars section */
+.stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stars p {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* Image grid */
+.imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Video styling */
+.video {
+    width: 100%;
+    max-width: 700px;
+}
+
+.video iframe {
+    width: 100%;
+    height: 417px;
+    border-radius: 15px 15px 0 0;
+}
+
+.cartaz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 3 / 4; 
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+.cartaz img{
+    width: 102%;
+}
+.imgs-templetes{
+    justify-content: center;
+    overflow-x: scroll;
+    margin-bottom: 30px;
+}
+.imgs-templetes::-webkit-scrollbar{
+    display: none;
+}
+.img-temp img{
+    width: 327px;
+    margin: 0 2px;
+}
+
+.informacoes{
+    display: flex;
+    gap: 10px;
+}
+
+.informacoes-filmes{
+    width: 60%;
+}
+.informacoes-filmes h3{
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+.informacoes-filmes p{
+    text-align: justify;
+    font-size: 1.1em;
+}
+
+.informacoes-filmes hr{
+    width: 100%;
+    height: 20px;
+    color: yellowgreen;
+    background-color: red;
+}
+.division5{
+    width: 100%;
+    height: 1px;
+    background-color: #686868;
+    margin: 20px 0;
+}
+
+.direcao{
+    display: flex;
+    align-items: center;
+}
+.direcao p {
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: #ebe9e9;
+    font-weight: 500;
+}
+
+.img-filmes-templetes,.img-filmes-templetes2, .img-filmes-templetes3{
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100vh; 
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #000000c9;
+}
+
+.plataformas{
+    width: 40%;
+    height: 260px;
+    border-left: 1px solid #686868;
+    padding-left: 20px;
+}
+.img-plataforma{
+    display: flex;
+    align-items: center;
+}
+.nome-plataforma h3{
+    width: 100%;
+    font-size: 1.3em; 
+    text-transform: uppercase;
+  }
+
+#imagem-plat{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+#imagem-plat img{
+    width: 100%;
+}
+.img-plataforma p{
+    margin-left: 10px;
+    margin-top: 1px;
+    font-weight: 600;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.button-play input{
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1em;
+    background-color: var(--login-Color);
+    border: 1px solid #011805;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+.button-play input:hover{
+    background-color: #187751;
+}
+.comentarios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content-comentarios{
+    width: 500px;
+}
+.comentarios h2{
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+.comentarios h3{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--GreySub);
+}
+.comentarios textarea{
+    width: 100%;
+    max-width: 500px;
+    height: 200px;
+    background-color: #fff;
+    color: #000;
+}
+
+.comentarios button{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 140px;
+    background-color: var(--login-Color);
+}
+.comentarios button:hover{
+    background-color: #187751;
+}
+
+.coment-atuais{
+    width: 50%;
+}
+.comment {
+    font-size: 1.2em;
+    background-color: #4b4b4b57;
+    padding: 10px;
+    color: white;
+    position: relative;
+    text-align: justify;
+    border-radius: 10px;
+    margin-bottom: 7px;
+}
+
+.comment::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(70, 70, 70);
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.comment p:nth-child(1){
+    position: absolute;
+    font-size: 1em;
+    font-weight: 700;
+    top: 20px;
+    left: 60px;
+}
+.comment p:nth-child(2){
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.comment p strong{
+    color: var(--login-Color);
+}
+.comment p em:nth-child(1){
+    font-size: 0.9em;
+}
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .avaliacoes img {
+        width: 20px;
+    }
+
+    .stars p {
+        font-size: 1.3em;
+    }
+    .informacoes-filmes{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        display: flex;
+        justify-content: center;
+    }
+    .cabecalho ul {
+        justify-content: center;
+    }
+    .imgs{
+        justify-content: center;
+    }
+    .avaliacoes-geral {
+        align-items: center;
+    }
+
+    .video {
+        max-width: 90%;
+    }
+    .direcao{
+        display: block;
+        align-items: center;
+    }
+    .informacoes{
+        flex-direction: column;
+    }
+    .plataformas{
+        width: 100%;
+    }
+    .plataformas{
+        width: 40%;
+        height: 260px;
+        border-left: none;
+        padding-left: 0px;
+    }
+    .coment-atuais{
+        width: 100%;
+    }
+    .button-play input{
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .avaliacoes h3 {
+        font-size: 1em;
+    }
+
+    .stars p {
+        font-size: 1.2em;
+    }
+
+    .cartaz {
+        max-width: 200px;
+    }
+    
+}

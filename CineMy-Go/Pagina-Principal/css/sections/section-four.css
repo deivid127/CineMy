@@ -1,0 +1,134 @@
+.section-four{
+    width: 100%;
+    height: auto;
+}
+
+.section-four h2{
+    color: var(--Fontes-Cor);
+    font-size: 2em;
+}
+.entrevistas-geral {
+    display: flex;
+    align-items: center;
+    width: 91.2%;
+    height: 330px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .entrevistas-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll; 
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+    scrollbar-width: none;
+  }
+  .entrevistas-container::-webkit-scrollbar {
+    display: none;
+  }
+  .videos-entrevistas{
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; 
+    height: 300px;
+    background-color: var(--CardVideos);
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  .img-video {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  /* CAPA DOS VÍDEOS */
+  .img-video img {
+    width: 120%;
+    height: auto;
+    transform: translateX(-50px);
+  }
+  
+ 
+  /* Ícone de Play */
+  .play img {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    bottom: 1px; 
+    left: 50px; 
+    opacity: 1;
+    pointer-events: none;
+    transition: filter 1s ease;    
+    filter: brightness(0) invert(1);
+  }
+  
+  .img-video:hover .play img {
+    filter: brightness(0) saturate(100%) hue-rotate(120deg); 
+  }
+  .img-video p {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: var(--Fontes-Cor);
+    padding: 5px 10px;
+    border-radius: 5px 0 0;
+    background-color: #000000b6;
+    font-weight: 600;
+    font-size: 1em;
+    margin-top: 15px;
+  }
+
+
+  .videos-entrevistas h3{
+    color: var(--Fontes-Cor);
+    text-align: center;
+    font-size: 1em;
+    margin: 10px 0 5px;
+  }
+  .videos-entrevistas h3:hover{
+    text-decoration: underline;
+  }
+  
+
+
+
+  /* Botão para passar pro lado */
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.651);
+    color: var(--Fontes-Cor);
+    border: none;
+    font-size: 1.9em;
+    padding: 20px 10px;
+    border: 2px solid #0b8511;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .left-btn {
+    left: 0;
+
+  }
+  
+  .right-btn {
+    right: 0;
+  }
+  
+  .scroll-btn:hover {
+    background-color: rgba(189, 189, 189, 0.3);
+  }
+  

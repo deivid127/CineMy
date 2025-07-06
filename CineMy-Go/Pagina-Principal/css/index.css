@@ -1,0 +1,17 @@
+@import './sections/header.css';
+@import './sections/Main.css';
+@import './sections/section-two.css';
+@import './sections/section-three.css';
+@import './sections/section-four.css';
+@import './sections/section-categoria.css';
+@import './sections/section-eight.css';
+@import './sections/sectionAnime.css';
+@import './sections/containerAnime.css';
+@import './sections/section-contato.css';
+@import './sections/footer.css';
+@import './SuperHerois/TemplateHerois.css';
+
+@import './global.css';
+@import './root.css';
+@import './sections/cardMovie.css';
+@import './criarConta.css';

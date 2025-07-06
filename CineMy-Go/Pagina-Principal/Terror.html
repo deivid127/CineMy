@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMy - Terror</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./img/LogoSimplificada.png">
+    
+    <!--FONTES-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Rubik+Vinyl&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-Geral">
+            <div class="header-content">
+                <a href="http://127.0.0.1:5500/Pagina-Principal/index.html">
+                    <img src="./img/imgHeader/logotipo.png" alt="">
+                </a>
+                <input type="checkbox" id="close-menu" class="close-menu" aria-label="Close menu" role="button">
+                <label for="close-menu" title="close-menu" class="close-menu-label"></label>
+                <nav class="menu">
+                    <div id="categorias-geral">
+                        <ul onclick="getElementById('close-menu').checked = false" ;>
+                            <li><a href="#inicio">Página Inicial</a></li>
+                            <div class="cat">
+                                <li><a href="#noticia">Notícias</a></li>
+                            </div>
+                            <li><a href="#FilmesSeries">Filmes/Séries</a></li>
+                            <li><a href="#contato">Contato</a></li>
+
+                            <hr>
+
+                            <div class="contato">
+                                <h3>Precisa de ajuda?</h3>
+                                <p><a href="#">Whatapp +55 00 0000-0000</a></p>
+                                <p><a href="#">Email</a></p>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="search">
+                <div class="enviar">
+                    <div class="input-Search">
+                        <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Digite..." onkeyup="searchSupabase()">
+                        <button class="botao2"><img src="./img/lupa.png" alt=""></button>
+
+                        <ul id="results"></ul>
+                    </div>
+                    <button class="botao" onclick="Search()"><img src="./img/lupa.png" alt=""></button>
+                    <div class="minha-Lista">
+                        <a href="#">
+                            <img src="./img/imgHeader/LogoMinhaLista.png" alt="">
+                        </a>
+                    </div>
+                    <div class="login" onclick="getElementById('close-menu').checked = false">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- <div id="header-container"></div> -->
+    <div class="space-header2"></div>
+    
+    <section class="section-hero">
+        <div class="text-verMais">
+            <div class="NomeSecoes">
+                <h2>Categoria</h2>
+                <div class="division6"></div>
+                <h3>Terror</h3>
+            </div>
+        </div>
+
+
+        <div class="FilmesHero">
+            <button class="scroll-btn left-btn scroll-btn2">&#8249;</button>
+            <div class="scroll-container">
+                
+            </div>
+            <button class="scroll-btn right-btn">&#8250;</button>
+        </div>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/CATEGORIAS/superHerois.js"></script>
+    <script src="header.js"></script>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    let filmesHeroSections = document.querySelectorAll('.FilmesHero');
+
+    filmesHeroSections.forEach((section) => {
+        let scrollContainer = section.querySelector('.scroll-container');
+        let leftBtn = section.querySelector('.left-btn');
+        let rightBtn = section.querySelector('.right-btn');
+
+        let scrollAmount = 220; // Distância de rolagem
+
+        function checkButtons() {
+            if (scrollContainer.scrollLeft === 0) {
+                leftBtn.style.display = "none";
+            } else {
+                leftBtn.style.display = "block";
+            }
+
+            if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+                rightBtn.style.display = "none";
+            } else {
+                rightBtn.style.display = "block";
+            }
+        }
+
+        rightBtn.addEventListener('click', function () {
+            scrollContainer.scrollLeft += scrollAmount;
+            setTimeout(checkButtons, 300);
+        });
+
+        leftBtn.addEventListener('click', function () {
+            scrollContainer.scrollLeft -= scrollAmount;
+            setTimeout(checkButtons, 300);
+        });
+
+        // Reseta a rolagem ao redimensionar a tela
+        window.addEventListener("resize", function () {
+            scrollContainer.scrollLeft = 0;
+            checkButtons();
+        });
+
+        // Inicializa verificando os botões
+        checkButtons();
+    });
+});
+
+    </script>
+
+<script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js';
+
+    const supabaseUrl = 'https://isktnyabdtsfsbbsudqk.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlza3RueWFiZHRzZnNiYnN1ZHFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc1OTA1MjAsImV4cCI6MjA1MzE2NjUyMH0.BuhzZ_-rd5ZujHQ77tXiqBdzbHIMa7mf_1q-odynMGs';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    async function fetchData() {
+        const { data, error } = await supabase
+            .from('filmes')
+            .select('id, titulo, genero, imagem')
+            .or("genero.eq.Terror,genero.eq.TERROR,genero.eq.terror");
+
+        console.log('Dados retornados:', data);
+        console.log('Erro:', error);
+
+        if (error) {
+            console.error('Erro ao buscar dados:', error);
+            return;
+        }
+
+        const container = document.querySelector('.scroll-container');
+        if (!container) {
+            console.error('Erro: .scroll-container não encontrado no HTML');
+            return;
+        }
+
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+            container.innerHTML = '<p>Nenhuma imagem encontrada.</p>';
+            return;
+        }
+
+        data.forEach(item => {
+            const div = document.createElement('div');
+            div.classList.add('cardtext');
+
+            const img = document.createElement('img');
+            const title = document.createElement('h3');
+            const button = document.createElement('button');
+
+            // Verifica se a URL da imagem está completa ou se precisa do Storage
+            if (item.imagem.startsWith('http')) {
+                img.src = item.imagem;
+            } else {
+                img.src = `https://isktnyabdtsfsbbsudqk.supabase.co/storage/v1/object/public/seu-bucket/${item.img_post}`;
+            }
+
+            img.alt = 'Imagem do post';
+            img.style.width = '100%';
+            img.style.borderRadius = '8px';
+
+            // Adiciona o título com quebra de linha
+            const maxLength = 14;
+            title.textContent = item.titulo.length > maxLength 
+            ? item.titulo.substring(0, maxLength) + "..." 
+            : item.titulo;
+
+            title.style.whiteSpace = 'normal';  
+            title.style.overflowWrap = 'break-word';  
+            title.style.wordWrap = 'break-word';  
+            title.style.marginBottom = '10px'; 
+
+            // Cria o botão e adiciona o link para a página do filme
+            button.textContent = 'Ver mais';
+            button.onclick = () => {
+                // Gera a URL com o formato correto: /filme?id={item.id}
+                const url = `http://127.0.0.1:5500/Pagina-Principal/filmes.html?id=${item.id}`;
+                console.log('Redirecionando para:', url);
+                window.location.href = url; 
+            };
+
+            div.appendChild(img);
+            div.appendChild(title);
+            div.appendChild(button);
+            container.appendChild(div);
+        });
+    }
+
+    fetchData();
+</script>
+
+
+</body>
+</html>

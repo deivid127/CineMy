@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemy: Filme</title>
+    <link rel="stylesheet" href="./css/templatesFilme/templeteFilmes.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./img/LogoSimplificada.png">
+    <script src="./scripts/templetes.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">   
+</head>
+
+<body>
+    <header>
+        <div class="header-Geral">
+            <div class="header-content">
+                <a href="index.html">
+                    <img src="./img/imgHeader/logotipo.png" alt="">
+                </a>
+                <input type="checkbox" id="close-menu" class="close-menu" aria-label="Close menu" role="button">
+                <label for="close-menu" title="close-menu" class="close-menu-label"></label>
+                <nav class="menu">
+                    <div id="categorias-geral">
+                        <ul onclick="getElementById('close-menu').checked = false" ;>
+                            <li><a href="index.html">Página Inicial</a></li>
+                            <div class="cat">
+                                <li><a href="index.html">Notícias</a></li>
+                            </div>
+                            <li><a href="index.html">Filmes/Séries</a></li>
+                            <li><a href="index.html">Contato</a></li>
+
+                            <hr>
+
+                            <div class="contato">
+                                <h3>Precisa de ajuda?</h3>
+                                <p><a href="#">Whatapp +55 00 0000-0000</a></p>
+                                <p><a href="#">Email</a></p>
+                            </div>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="search">
+                <div class="enviar">
+                    <div class="input-Search">
+                        <input type="text" name="pesquisa" id="pesquisa2" class="pesquisa" placeholder="Digite..." onkeyup="searchSupabase2()">
+                        <button class="botao2"><img src="./img/lupa.png" alt=""></button>
+
+                        <ul id="results2"></ul>
+                    </div>
+                    <button class="botao" onclick="Search()"><img src="./img/lupa.png" alt=""></button>
+                    <div class="minha-Lista">
+                        <a href="#">
+                            <img src="./img/imgHeader/LogoMinhaLista.png" alt="">
+                        </a>
+                    </div>
+                    <div class="login" onclick="getElementById('close-menu').checked = false">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="space-header2"></div>
+
+    
+    <section>
+        <div class="conteiner">
+            <div class="content">
+                <div class="cabecalho">
+                    <div class="complemento">
+                        <!-- Título do filme -->
+                        <h1 class="titulo-filme"></h1>
+                        <ul>
+                            <li id="ano"></li> <!-- ano -->
+                            <li id="faixa" style="background-color: backgroundColor; padding: 7px; margin-top: -4px; border-radius: 5px;"></li> <!-- faixa etária com cor -->
+                            <li id="tempo"></li> <!-- tempo do filme -->
+                        </ul>
+                    </div>
+
+                    <!-- Avaliações -->
+                    <div class="avaliacoes-geral">
+                        <div class="avaliacoes">
+                            <h3>Avaliação geral</h3>
+                            <div class="stars">
+                                <img src="./img/star.png" alt="Estrelas">
+                                <p id="avaliacao"></p> <!-- Exibe a avaliação do filme -->
+                            </div>
+                        </div>
+
+                        <div class="avaliacoes">
+                            <h3>Bilheteira</h3>
+                            <div class="stars">
+                                <img src="./img/ingressos.png" alt="Ingressos">
+                                <p id="bilheteria"></p> <!-- Exibe a bilheteira -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagens e Vídeo -->
+                <div class="imgs">
+                    <div class="video">
+                        <iframe 
+                        id="video" 
+                        title="Video"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        ></iframe> <!-- Vídeo -->
+                    </div>
+
+                    <div class="cartaz">
+                        <img id="imagem" alt="Cartaz de filme"> <!-- Imagem do filme -->
+                    </div>
+
+                    <div class="imagem-anime-content imgs-templetes" >
+                        <div class="img-temp" onclick="EnterImgTempletes()">
+                            <img  alt="primeira imagem do filme">
+                        </div> 
+                        <div class="img-temp img-temp2" onclick="EnterImgTempletes2()">
+                            <img  alt="segunda imagem do filme">
+                        </div>     
+
+                        <div class="img-temp img-temp3" onclick="EnterImgTempletes3()">
+                            <img  alt="terceira imagem do filme">
+                        </div>   
+                    </div>
+                </div>
+
+                <!-- Informações sobre o filme -->
+                <div class="informacoes">
+                    <div class="informacoes-filmes">
+                        <h3>Sinopse :</h3>
+                        <p id="sinopse"></p> <!-- sinopse do filme -->
+                        <div class="division5"></div>
+                        
+                        <div class="direcao">
+                            <h3>Direção :</h3>
+                           <p id="direcao"></p> <!-- direção do filme -->
+                        </div>
+                        <div class="division5"></div>
+
+                        <div class="direcao">
+                            <h3>Artistas :</h3>
+                            <p id="artistas"></p> <!-- Exibe os artistas -->
+                        </div>
+                        
+                        <div class="division5"></div>
+                    </div>
+                    <div class="plataformas">
+                        <div class="nome-plataforma">
+                            <h3>Onde Assistir</h3>
+                            <div class="img-plataforma">
+                                <img id="imagem-plat"  alt="">
+                                <p id="nome-plat">Plataforma</p>
+                            </div>
+                        </div>
+                        <div class="button-play">
+                            <input type="button" value="Assinar streaming" onclick="streaming()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+    <div class="img-filmes-templetes">
+        <div class="anime-destaques">
+           <div class="close-img-anime" onclick="CloseImgFilme()" >X</div>
+           <img class="full-img-anime img-movie-temp"  alt="">
+        </div>
+    </div>
+
+    <div class="img-filmes-templetes2">
+        <div class="anime-destaques">
+           <div class="close-img-anime" onclick="CloseImgFilme2()" >X</div>
+           <img class="full-img-anime img-movie-temp2"  alt="">
+        </div>
+    </div>
+    
+    <div class="img-filmes-templetes3">
+        <div class="anime-destaques">
+           <div class="close-img-anime" onclick="CloseImgFilme3()" >X</div>
+           <img class="full-img-anime img-movie-temp3"  alt="">
+        </div>
+    </div>
+    
+   <div class="comentarios">
+       <div class="content-comentarios">
+   
+       <h3>Adicionar Comentário</h3>
+       <textarea id="commentInput" placeholder="Escreva um comentário..." maxlength="1000"></textarea><br>
+       <button onclick="addComment()">Enviar</button>
+       <div class="division5"></div>
+       </div>
+
+       <div class="coment-atuais">
+           <h2>Comentários</h2>
+           <div id="comments"></div>
+       </div>
+   </div> 
+
+
+   <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2025 Avaliação de Filmes. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+    <script>
+    let containerImgTempletes = document.querySelector('.img-filmes-templetes');
+    function EnterImgTempletes(){
+      containerImgTempletes.style.display = 'flex'
+    }
+
+    let containerImgTempletes2 = document.querySelector('.img-filmes-templetes2');
+    function EnterImgTempletes2(){
+      containerImgTempletes2.style.display = 'flex'
+    }
+
+    let containerImgTempletes3 = document.querySelector('.img-filmes-templetes3');
+    function EnterImgTempletes3(){
+      containerImgTempletes3.style.display = 'flex'
+    }
+
+    function CloseImgFilme(){
+      containerImgTempletes.style.display = 'none';
+    }
+    function CloseImgFilme2(){
+      containerImgTempletes2.style.display = 'none';
+    }
+    function CloseImgFilme3(){
+      containerImgTempletes3.style.display = 'none';
+    }
+    </script>
+
+<script src="./scripts/script.js"></script>
+<script src="./scripts/cardeffect.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="./scripts/comentarios.js"></script>
+
+
+    
+    <script>
+        VanillaTilt.init(document.querySelector(".cartaz"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        })
+    </script>
+    
+</body>
+
+</html>

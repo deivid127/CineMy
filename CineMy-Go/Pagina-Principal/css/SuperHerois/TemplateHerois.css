@@ -1,0 +1,91 @@
+.section-hero{
+    width: 100%;
+    height: 100vh;
+}
+
+.space-header2{
+    width: 100%;
+    height: 60px;
+}
+
+.FilmesHero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 100%;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 0;
+    margin: 0 10px;
+}
+
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.cardtext {
+    display: flex;
+    position: relative;
+    width: 230px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.804) 0%, rgba(17,17,17,0.804359243697479) 37%, rgba(49,122,71,0.8) 100%);    margin: 13px 13px;
+    text-align: center;
+    box-shadow: 0 0 10px #000;
+    scrollbar-width: none;
+    flex-direction: column;
+    text-align: center;
+}
+.cardtext h3{
+    font-weight: 600;
+
+}
+.cardtext button{
+    color: #17a00b;
+    border-radius: 30px;
+
+    background-color: #091b049c;
+}
+.cardtext button:hover {
+    background-color: var(--button-card);
+}
+.cardtext h3{
+    font-size: 20px;
+    margin: 20px;
+    color: #fff;
+    font-family: "Exo 2", serif;
+}
+.scroll-btn2 {
+    display: none;
+}
+.FilmesHero2{
+    margin-top: 30px;
+}
+
+.section-hero .NomeSecoes h2{
+    color: var(--login-Color);
+    font-weight: 700;
+    font-size: 2.2em;
+}
+
+
+.section-hero .NomeSecoes h3 {
+    color: var(--GreySub);
+    font-size: 1.2em;
+    margin: 5px 0;
+}

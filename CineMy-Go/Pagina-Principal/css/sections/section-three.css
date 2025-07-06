@@ -1,0 +1,103 @@
+.section-three{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.Filmes-Series-content{
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.Filmes-Series-content h3{
+    color: var(--GreySub);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+.conteiner-two-destaques{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    width: 95%;
+    height: auto;
+}
+.conteiner-two-destaques::before,
+.conteiner-two-destaques::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: 0;
+    width: 90px;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+}
+.conteiner-two-destaques::before {
+    left: 0;
+    background: linear-gradient(to right, var(--Cor-Fundo), rgba(255, 255, 255, 0));
+}
+.conteiner-two-destaques::after {
+    right: 0;
+    background: linear-gradient(to left, var(--Cor-Fundo), rgba(255, 255, 255, 0));
+}
+
+
+.filmes-destaques {
+    display: flex;
+    justify-content: flex-start; 
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    height: auto;
+    scrollbar-width: none;
+}
+
+.filmes-destaques::-webkit-scrollbar {
+    display: none;
+}
+
+.filmes-destaques::before, .filmes-destaques::after {
+    content: '';
+    flex-shrink: 0;
+    width: 50px;
+}
+
+.filmes-destaques > * {
+    flex-shrink: 0;
+    width: 300px; 
+}
+.scrollLeft, .scrollRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Fontes-Cor);
+    right: 0;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--Fontes-Cor);
+    top: 45%;
+    background-color: rgba(5, 5, 5, 0.87);
+    z-index: 3;
+    cursor: pointer;
+}
+.scrollLeft{
+    left: 0;
+}    
+.scrollRight p, .scrollLeft p{
+    font-size: 3em;
+    margin-top: -20px;
+}
+.scrollLeft:hover, .scrollRight:hover{
+    background-color: var(--Subtitulo);
+}
+.catalogo2{
+    width: 30%;
+}
