@@ -5,30 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMy: Marcação, avaliação e comentarios dos filmes</title>
+    
     <link rel="stylesheet" href="./CineMy-Go/Pagina-Principal/css/index.css">
+    
     <link rel="icon" href="./CineMy-Go/Pagina-Principal/img/LogoSimplificada.png">
 
-    <!--FONTES-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
         rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Signika:wght@300..700&display=swap"
         rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400..900&family=Rubik+Vinyl&family=Signika:wght@300..700&display=swap"
         rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
@@ -67,7 +59,7 @@
             <div class="search">
                 <div class="enviar">
                     <div class="input-Search">
-                        <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Digite..." onkeyup="searchSupabase()">
+                        <input type="text" name="pesquisa" id="pesquisa" class="pesquisa" placeholder="Digite..." onkeyup="searchMovies('pesquisa', 'results')">
                         <button class="botao2"><img src="./CineMy-Go/Pagina-Principal/img/lupa.png" alt=""></button>
 
                         <ul id="results"></ul>
@@ -449,7 +441,7 @@
                     <div class="img-video">
                         <a href="#"><img src="./CineMy-Go/Pagina-Principal/img/ImgVideoPlay/entrevista3.jpg" alt=""></a>
                         <div class="play">
-                            <img src="./img/Play-Button.png" alt="">
+                            <img src="./CineMy-Go/Pagina-Principal/img/Play-Button.png" alt="">
                         </div>
                         <p>3:34</p>
                     </div>
@@ -648,7 +640,7 @@
    
      <!--EMAIL E SENHA-->
     <div id="conta">
-        <form action="login.jsp" method="post" id="conteudo-conta">
+        <form id="conteudo-conta" onsubmit="handleLogin(event)">
             <h2>Entrar em minha conta</h2>
             <p>Digite seu e-mail e senha:</p>
 
@@ -720,26 +712,23 @@
     </div>
     
     <!-- FINAL CRIAR CONTA -->
-
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     
-    <script src="/CineMy-Go/Pagina-Principal/scripts/script.js"></script>
-    <script src="./CineMy-Go/Pagina-Principal/scripts/index.js"></script>
-    <script src="./sectionThree.js"></script>
-    <script src="./sectionSix.js"></script>
-    <script src="./sectionSeven.js"></script>
-    <script src="./CineMy-Go/Pagina-Principal/scripts/cardeffect.js"></script>
-    <script src="./CineMy-Go/Pagina-Principal/header.js"></script>
+    <script src="./CineMy-Go/Pagina-Principal/scripts/script.js"></script>
 
+    <script src="./CineMy-Go/Pagina-Principal/scripts/index.js"></script>
+
+    <script src="./CineMy-Go/Pagina-Principal/scripts/cardeffect.js"></script>
+    
     <script>
         VanillaTilt.init(document.querySelector(".imagem-anime-um"), {
             max: 25,
             speed: 400,
             glare: true,
             "max-glare": 0.2
-        })
+        });
     </script>
+
 </body>
 </html>

@@ -2,127 +2,111 @@
 
 const e = React.createElement;
 
-// Componente CardPlay
-function CardPlay({ nome, modo, anoLancamento, link, imagem, avaliacao }) {
+// ====================================================================
+// COMPONENTE PARTILHADO: CardPlay
+// Este componente agora estará visível para todos os outros
+// ====================================================================
+function CardPlay({ nome, link, imagem, avaliacao, anoLancamento }) {
     return e(
-        'div',
-        { className: `conteudo-catalogo catalogo1` },
-        e(
-            'div',
-            { className: 'star-play' },
-            e('img', { src: './CineMy-Go/Pagina-Principal/img/star.png', alt: 'Botão de play' }),
-            e('p', null, avaliacao ? avaliacao : '0')
+        'div', { className: 'conteudo-catalogo catalogo1' },
+        e('div', { className: 'star-play' },
+            e('img', { src: './CineMy-Go/Pagina-Principal/img/star.png', alt: 'Estrela de avaliação' }),
+            e('p', null, avaliacao || '0')
         ),
-        e(
-            'a',
-            { href: link },
-            e(
-                'div',
-                { className: 'imagem-cartaz' },
+        e('a', { href: link },
+            e('div', { className: 'imagem-cartaz' },
                 e('img', {
-                    src: imagem ? imagem : './CineMy-Go/Pagina-Principal/img/Imagem-Catalogo/Sonic.jpg',
+                    src: imagem || './CineMy-Go/Pagina-Principal/img/Imagem-Catalogo/Sonic.jpg',
                     alt: `Cartaz de ${nome}`,
-                }),
+                })
             ),
-            e('p', null, nome ? nome : 'Filme'),
-            e('p', null, anoLancamento ? anoLancamento : 'Ano'),
+            e('p', null, nome || 'Filme'),
+            e('p', null, anoLancamento || 'Ano'),
             e('button', null, 'Ver mais')
-        ),
-    );
-}
-
-// Componente SectionOne
-function SectionOne() {
-    const cards = [
-        {
-            avaliacao: '7.2',
-            nome: 'Sonic 3',
-            modo: '1h 50m',
-            anoLancamento: '2024',
-            link: 'https://dev-gabriell.github.io/CineMy/filmes.html?id=1',
-            imagem: 'https://media-cache.cinematerial.com/p/500x/grnwpsui/sonic-the-hedgehog-3-movie-poster.jpg?v=1731049635',
-        },
-        {
-            avaliacao: '6.3',
-            nome: 'Operação Natal',
-            modo: '2h 03m',
-            anoLancamento: '2024',
-            link: 'https://dev-gabriell.github.io/CineMy/filmes.html?id=4',
-            imagem: 'https://media-cache.cinematerial.com/p/500x/slq8cgtd/red-one-movie-poster.jpg?v=1733771259',
-        },
-        {
-            avaliacao: '6.0',
-            nome: 'Venom 3',
-            modo: '1h 49m',
-            anoLancamento: '2024',
-            link: 'https://dev-gabriell.github.io/CineMy/filmes.html?id=5',
-            imagem: 'https://media-cache.cinematerial.com/p/500x/bicsbagk/venom-the-last-dance-movie-poster.jpg?v=1717423514',
-        },
-        {
-            avaliacao: '6.7',
-            nome: 'Mufasa: O Rei Leão',
-            modo: '2h 0m',
-            anoLancamento: '2024',
-            link: 'https://dev-gabriell.github.io/CineMy/filmes.html?id=7',
-            imagem: 'https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg',
-            
-        },
-        {
-            avaliacao: '7.0',
-            nome: 'Capitão América: Admirável...',
-            modo: '1h 58m',
-            anoLancamento: '2025',
-            link: 'https://dev-gabriell.github.io/CineMy/filmes.html?id=24',
-            imagem: 'https://m.media-amazon.com/images/M/MV5BMjIyNjZmOTEtYWFiYS00YzRhLThhMTktMDUwN2Q3ZDgzZmJmXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg',
-        },
-    ];
-
-    return e(
-        'section',
-        { id: 'section-one' },
-        e(
-            'div',
-            { className: 'conteiner-one' },
-            e(
-                'div',
-                { className: 'text-verMais' },
-                e(
-                    'div',
-                    { className: 'NomeSecoes' },
-                    e('h2', null, 'Últimos filmes lançados'),
-                    e('div', { className: 'division2' })
-                ),
-                e(
-                    'div',
-                    { className: 'verMais' },
-                    e('p', null, e('a', { href: '#' }, 'Ver mais'))
-                )
-            ),
-            e(
-                'div',
-                { className: 'catalogo' },
-                e(
-                    'div',
-                    { className: 'catalogo-destaque' },
-                    cards.map((card) =>
-                        e(CardPlay, {
-                            key: card.nome,
-                            ...card,
-                        })
-                    )
-                    
-                )
-            ),
-            e('div', { className: 'space-line' })
         )
     );
 }
 
-// Renderizando a SectionOne no elemento com id "CardMovie"
-const domContainer = document.getElementById('CardMovie');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(SectionOne));
+// ====================================================================
+// FUNÇÃO AUXILIAR PARA BUSCAR E RENDERIZAR SECÇÕES
+// ====================================================================
+function createSectionComponent(title, endpoint) {
+    return () => {
+        const [cards, setCards] = React.useState([]);
+        const [error, setError] = React.useState(null);
 
+        React.useEffect(() => {
+            fetch(`http://127.0.0.1:5000/${endpoint}`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Falha na rede para ${endpoint}`);
+                    return response.json();
+                })
+                .then(data => {
+                    const formattedData = data.map(filme => ({
+                        key: `${endpoint}-${filme.id_filme}`,
+                        avaliacao: filme.avaliacao.toString(),
+                        nome: filme.titulo,
+                        anoLancamento: filme.ano.toString(),
+                        link: `filmes.html?id=${filme.id_filme}`,
+                        imagem: filme.imagem,
+                    }));
+                    setCards(formattedData);
+                })
+                .catch(err => {
+                    console.error(`Erro ao buscar dados para ${title}:`, err);
+                    setError(err.message);
+                });
+        }, []);
 
+        if (error) {
+            return e('p', { style: { color: 'red', textAlign: 'center' } }, `Não foi possível carregar: ${title}`);
+        }
 
+        if (cards.length === 0) {
+            return e('p', { style: { textAlign: 'center' } }, `A carregar ${title}...`);
+        }
 
+        return e(
+            'div', { className: 'conteiner-one' }, // Usando uma classe de container genérica
+            e('div', { className: 'text-verMais' },
+                e('div', { className: 'NomeSecoes' },
+                    e('h2', null, title),
+                    e('div', { className: 'division2' })
+                ),
+                e('div', { className: 'verMais' }, e('p', null, e('a', { href: '#' }, 'Ver mais')))
+            ),
+            e('div', { className: 'catalogo' },
+                e('div', { className: 'catalogo-destaque' },
+                    cards.map(card => e(CardPlay, card))
+                )
+            ),
+            e('div', { className: 'space-line' })
+        );
+    };
+}
+
+// ====================================================================
+// DEFINIÇÃO DAS SECÇÕES
+// ====================================================================
+const SectionOne = createSectionComponent('Últimos filmes lançados', 'filmes/lancamentos');
+const SectionThree = createSectionComponent('Filmes Populares', 'filmes/populares');
+const SectionSix = createSectionComponent('Séries em Destaque', 'filmes/series');
+const SectionSeven = createSectionComponent('Adicionados Recentemente', 'filmes/populares'); // Reutilizando endpoint
+
+// ====================================================================
+// RENDERIZAÇÃO DOS COMPONENTES NOS SEUS DEVIDOS LUGARES
+// ====================================================================
+function renderComponent(component, elementId) {
+    const container = document.getElementById(elementId);
+    if (container) {
+        const root = ReactDOM.createRoot(container);
+        root.render(e(component));
+    } else {
+        console.warn(`Elemento com ID '${elementId}' não foi encontrado no DOM.`);
+    }
+}
+
+renderComponent(SectionOne, 'CardMovie');
+renderComponent(SectionThree, 'FilmesSeries');
+renderComponent(SectionSix, 'section-six');
+renderComponent(SectionSeven, 'section-seven');

@@ -1,30 +1,18 @@
 // Função para calcular o tempo decorrido
 function timeAgo(date) {
     const now = new Date();
-    const diffInSeconds = Math.floor((now - new Date(date)) / 1000); 
+    const diffInSeconds = Math.floor((now - new Date(date)) / 1000);
 
-    if (diffInSeconds < 60) {
-        return `${diffInSeconds} s atrás`;
-    }
-
-    const diffInMinutes = Math.floor(diffInSeconds / 60); // Diferença em minutos
-    if (diffInMinutes < 60) {
-        return `${diffInMinutes} m atrás`;
-    }
-
-    const diffInHours = Math.floor(diffInMinutes / 60); // Diferença em horas
-    if (diffInHours < 24) {
-        return `${diffInHours} h atrás`;
-    }
-
-    const diffInDays = Math.floor(diffInHours / 24); // Diferença em dias
+    if (diffInSeconds < 60) return `${diffInSeconds} s atrás`;
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    if (diffInMinutes < 60) return `${diffInMinutes} m atrás`;
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `${diffInHours} h atrás`;
+    const diffInDays = Math.floor(diffInHours / 24);
     return `${diffInDays} d atrás`;
 }
 
-// Conectar ao Supabase
-const SUPABASE_URL = "https://isktnyabdtsfsbbsudqk.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlza3RueWFiZHRzZnNiYnN1ZHFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc1OTA1MjAsImV4cCI6MjA1MzE2NjUyMH0.BuhzZ_-rd5ZujHQ77tXiqBdzbHIMa7mf_1q-odynMGs";
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const API_URL = "http://127.0.0.1:5000";
 
 function getPostIdFromURL() {
     const params = new URLSearchParams(window.location.search);
@@ -32,75 +20,52 @@ function getPostIdFromURL() {
 }
 
 const postId = getPostIdFromURL();
-
-// Limite de comentários por vez
-const commentsPerPage = 5;
-let currentIndex = 0;
-let allComments = [];
 const commentsDiv = document.getElementById("comments");
-const loadMoreBtn = document.createElement("button");
-loadMoreBtn.textContent = "Ver mais";
-loadMoreBtn.style.display = "none"; 
 
-loadMoreBtn.addEventListener("click", loadMoreComments);
-
-// Função para renderizar os comentários
-function renderComments() {
+function renderComments(comments) {
     commentsDiv.innerHTML = "";
-    const visibleComments = allComments.slice(0, currentIndex + commentsPerPage);
-
-    visibleComments.forEach(comment => {
-        const div = document.createElement("div");
-        div.classList.add("comment");
-
-        const timeElapsed = timeAgo(comment.created_at);
-
-        div.innerHTML = `
-            <p>Usuario</p>
-            <p><strong>Comentário:</strong> ${comment.content}</p>
-            <p><em>${timeElapsed}<br></em></p>
-        `;
-
-        commentsDiv.appendChild(div);
-    });
-
-    if (currentIndex + commentsPerPage < allComments.length) {
-        loadMoreBtn.style.display = "block";
-    } else {
-        loadMoreBtn.style.display = "none";
-    }
-}
-
-// Carregar mais comentários
-function loadMoreComments() {
-    currentIndex += commentsPerPage;
-    renderComments();
-}
-
-// Buscar Comentários
-async function fetchComments() {
-    const { data, error } = await supabaseClient
-        .from("comments")
-        .select("*")
-        .eq("post_id", postId)
-        .order("created_at", { ascending: false });
-
-    if (error) {
-        console.error("Erro ao buscar comentários:", error);
+    if (comments.length === 0) {
+        commentsDiv.innerHTML = "<p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>";
         return;
     }
 
-    allComments = data;
-    currentIndex = 0;
-    renderComments();
+    comments.forEach(comment => {
+        const div = document.createElement("div");
+        div.classList.add("comment");
+        const timeElapsed = timeAgo(comment.data_criacao);
 
-    if (!commentsDiv.contains(loadMoreBtn)) {
-        commentsDiv.appendChild(loadMoreBtn);
+        div.innerHTML = `
+            <p><strong>${comment.nome_usuario}</strong></p>
+            <p>${comment.conteudo}</p>
+            <p><em>${timeElapsed}</em></p>
+            <hr>
+        `;
+        commentsDiv.appendChild(div);
+    });
+}
+
+async function fetchComments() {
+    if (!postId) return;
+    try {
+        const response = await fetch(`${API_URL}/filmes/${postId}/comentarios`);
+        if (!response.ok) throw new Error('Erro ao buscar comentários');
+        const data = await response.json();
+        renderComments(data);
+    } catch (error) {
+        console.error("Erro:", error);
+        commentsDiv.innerHTML = "<p style='color:red;'>Não foi possível carregar os comentários.</p>";
     }
 }
 
-// Adicionar Comentário
 async function addComment() {
+    const savedUser = sessionStorage.getItem('currentUser');
+    const currentUser = savedUser ? JSON.parse(savedUser) : null;
+
+    if (!currentUser) {
+        alert("Você precisa estar logado para comentar!");
+        return;
+    }
+
     const commentInput = document.getElementById("commentInput");
     const content = commentInput.value.trim();
 
@@ -108,17 +73,33 @@ async function addComment() {
         alert("O comentário não pode estar vazio!");
         return;
     }
+    
+    const commentData = {
+        conteudo: content,
+        id_usuario: currentUser.id_usuario
+    };
 
-    const { data, error } = await supabaseClient
-        .from("comments")
-        .insert([{ post_id: postId, content }]);
+    try {
+        // ✅ ATUALIZAÇÃO: URL corrigido para a nova rota de POST
+        const response = await fetch(`${API_URL}/filmes/${postId}/comentarios/add`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(commentData),
+        });
 
-    if (error) {
+        const data = await response.json();
+
+        if (!data.sucesso) {
+            throw new Error(data.mensagem || 'Erro desconhecido ao adicionar comentário');
+        }
+        
+        commentInput.value = "";
+        fetchComments(); 
+    } catch (error) {
         console.error("Erro ao adicionar comentário:", error);
-        return;
+        alert(`Não foi possível adicionar o comentário: ${error.message}`);
     }
-
-    commentInput.value = "";
-    fetchComments(); 
 }
+
+// Inicia a busca de comentários quando a página carrega
 fetchComments();
