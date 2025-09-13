@@ -143,7 +143,7 @@ def get_comentarios(id_filme):
     if conn is None: return jsonify({"erro": "Não foi possível conectar ao banco de dados"}), 500
     cursor = conn.cursor(dictionary=True)
     query = """
-        SELECT c.id_comentario, c.conteudo, c.data_criacao,
+        SELECT c.id_comentario, c.conteudo, c.data_criacao, c.avaliacao_estrelas,
                COALESCE(u.nome_usuario, 'Anônimo') AS nome_usuario
         FROM comentarios c
         LEFT JOIN usuarios u ON c.id_usuario = u.id_usuario
@@ -162,17 +162,17 @@ def add_comentario(id_filme):
     dados = request.get_json()
     print("Dados recebidos para novo comentário:", dados) # Para depuração
 
-    if not dados or 'conteudo' not in dados or 'id_usuario' not in dados:
-        return jsonify({"sucesso": False, "mensagem": "Conteúdo e ID do usuário são obrigatórios"}), 400
+    if not dados or 'conteudo' not in dados or 'id_usuario' not in dados or 'avaliacao_estrelas' not in dados:
+        return jsonify({"sucesso": False, "mensagem": "Conteúdo, ID do usuário e avaliação são obrigatórios"}), 400
 
     conn = get_db_connection()
     if conn is None:
         return jsonify({"sucesso": False, "mensagem": "Erro de conexão com o banco de dados"}), 500
 
     cursor = conn.cursor()
-    query = "INSERT INTO comentarios (id_filme, id_usuario, conteudo) VALUES (%s, %s, %s)"
+    query = "INSERT INTO comentarios (id_filme, id_usuario, conteudo, avaliacao_estrelas) VALUES (%s, %s, %s, %s)"
     try:
-        cursor.execute(query, (id_filme, dados['id_usuario'], dados['conteudo']))
+        cursor.execute(query, (id_filme, dados['id_usuario'], dados['conteudo'], dados['avaliacao_estrelas']))
         conn.commit()
         return jsonify({"sucesso": True, "mensagem": "Comentário adicionado com sucesso!"}), 201
     except mysql.connector.Error as err:

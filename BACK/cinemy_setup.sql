@@ -1,14 +1,7 @@
--- ====================================================================
--- CINEMY - SCRIPT DE CONFIGURAÇÃO COMPLETO (VERSÃO CORRIGIDA)
--- APAGA AS TABELAS ANTIGAS, CRIA AS NOVAS E INSERE 20 FILMES.
--- ====================================================================
-
--- Apaga as tabelas existentes para começar do zero (cuidado: isso remove todos os dados)
 DROP TABLE IF EXISTS comentarios;
 DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS filmes;
 
--- Tabela de Filmes
 CREATE TABLE `filmes` (
   `id_filme` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) NOT NULL,
@@ -30,7 +23,6 @@ CREATE TABLE `filmes` (
   PRIMARY KEY (`id_filme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tabela de Usuários
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome_usuario` varchar(50) NOT NULL,
@@ -42,12 +34,12 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Tabela de Comentários
 CREATE TABLE `comentarios` (
   `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
   `id_filme` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `conteudo` text NOT NULL,
+  `avaliacao_estrelas` int(1) DEFAULT NULL,
   `data_criacao` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_comentario`),
   KEY `id_filme` (`id_filme`),
@@ -57,16 +49,10 @@ CREATE TABLE `comentarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- ====================================================================
--- INSERÇÃO AUTOMÁTICA DE DADOS
--- ====================================================================
-
--- Inserir um usuário padrão para os comentários
 INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `email`, `senha`) VALUES
 (1, 'visitante', 'visitante@email.com', '1234'),
 (2, 'cinéfilo_expert', 'expert@email.com', '1234');
 
--- Inserir 20 filmes variados
 INSERT INTO `filmes` (`id_filme`, `titulo`, `sinopse`, `ano`, `direcao`, `artistas`, `avaliacao`, `imagem`, `bilheteria`, `faixa`, `video`, `tempo`, `genero`, `plataforma`) VALUES
 (1, 'Duna: Parte Dois', 'Paul Atreides se une a Chani e aos Fremen em uma guerra de vingança contra os conspiradores que destruíram sua família.', 2024, 'Denis Villeneuve', 'Timothée Chalamet, Zendaya, Rebecca Ferguson', 8.8, 'https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05ES0nw.jpg', '711M', 14, 'https://www.youtube.com/embed/U2Qp5pL3ovA', '2h 46m', 'Ficção Científica', 'HBO Max'),
 (2, 'Oppenheimer', 'A história do físico americano J. Robert Oppenheimer e seu papel no desenvolvimento da bomba atômica.', 2023, 'Christopher Nolan', 'Cillian Murphy, Emily Blunt, Matt Damon', 8.6, 'https://image.tmdb.org/t/p/w500/c0DCmfC7Et2K3ssj20AzaLd28VO.jpg', '952M', 16, 'https://www.youtube.com/embed/uYPbbksJxIg', '3h 0m', 'Biografia', 'Prime Video'),

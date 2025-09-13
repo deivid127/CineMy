@@ -33,9 +33,19 @@ function renderComments(comments) {
         const div = document.createElement("div");
         div.classList.add("comment");
         const timeElapsed = timeAgo(comment.data_criacao);
+        
+        let stars = '';
+        for(let i = 0; i < 5; i++) {
+            if(i < comment.avaliacao_estrelas) {
+                stars += '★';
+            } else {
+                stars += '☆';
+            }
+        }
 
         div.innerHTML = `
             <p><strong>${comment.nome_usuario}</strong></p>
+            <p style="color: #FFD700;">${stars}</p>
             <p>${comment.conteudo}</p>
             <p><em>${timeElapsed}</em></p>
             <hr>
@@ -68,15 +78,22 @@ async function addComment() {
 
     const commentInput = document.getElementById("commentInput");
     const content = commentInput.value.trim();
+    const rating = document.querySelector('input[name="rating"]:checked');
 
     if (!content) {
         alert("O comentário não pode estar vazio!");
         return;
     }
     
+    if (!rating) {
+        alert("Por favor, selecione uma avaliação de estrelas.");
+        return;
+    }
+    
     const commentData = {
         conteudo: content,
-        id_usuario: currentUser.id_usuario
+        id_usuario: currentUser.id_usuario,
+        avaliacao_estrelas: rating.value
     };
 
     try {
@@ -94,6 +111,7 @@ async function addComment() {
         }
         
         commentInput.value = "";
+        rating.checked = false;
         fetchComments(); 
     } catch (error) {
         console.error("Erro ao adicionar comentário:", error);
